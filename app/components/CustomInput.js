@@ -5,7 +5,7 @@ const CustomInput = ({ placeholder, name, headerEnabled, onChangeText, type, sec
     return (
         <View style={styles.container}>
             {headerEnabled && <Text>{name}</Text>}
-            <TextInput secureTextEntry={secure} keyboardType={type} onChangeText={onChangeText} style={styles.input} placeholder={placeholder} />
+            <TextInput secureTextEntry={secure} keyboardType={type} onChangeText={(text) => {onChangeText(text)}} style={styles.input} placeholder={placeholder} />
         </View>
     )
 }

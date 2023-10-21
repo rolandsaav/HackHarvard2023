@@ -3,15 +3,22 @@ import { KeyboardAvoidingView, SafeAreaView, StyleSheet, Text, TextInput, View }
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthContainer from './containers/AuthContainer';
+import { AuthContext } from './context/AuthContext';
+import { useState } from 'react';
+import MainContainer from './containers/MainContainer';
 
 
 export default function App() {
+  const [user, setUser] = useState(null)
+
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <AuthContainer/>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <AuthContext.Provider value={{user, setUser}}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          {user == null ? <AuthContainer/> : <MainContainer/>}
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </AuthContext.Provider>
   );
 }
 

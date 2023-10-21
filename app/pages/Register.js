@@ -1,28 +1,68 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View, Keyboard, Pressable } from 'react-native'
 import CustomInput from '../components/CustomInput';
+import { useContext, useState } from 'react';
+import { auth, db, userRef } from '../firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { AuthContext } from '../context/AuthContext';
+
 
 const brandImg = require("../assets/Brand.png")
 
-const Register = ({navigation}) => {
+const Register = ({ navigation }) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [name, setName] = useState("")
+    const [number, setNumber] = useState("")
+    const [username, setUsername] = useState("")
+    const {u, setUser} = useContext(AuthContext)
+
+    const onRegister = async () => {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = cred.user;
+        
+        if(user) {
+            try {
+                const document = doc(db, "users", user.uid)
+                const data = {
+                    id: user.uid,
+                    email: email,
+                    name: name,
+                    phone: number,
+                    username: username,
+                }
+
+                await setDoc(document, data);
+
+                setUser(user);
+
+            }
+            catch(err) {
+                console.log(err)
+            }
+        }
+        
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.titleContainer}>
                 <Image style={styles.image} source={brandImg} />
             </View>
             <View style={styles.inputContainer}>
-                <CustomInput headerEnabled name={"Name"} placeholder={"Your name"} />
-                <CustomInput headerEnabled name={"Username"} placeholder={"Ryan Reynolds"} />
-                <CustomInput headerEnabled name={"Email"} placeholder={"awesome@example.com"} />
-                <CustomInput headerEnabled type={"number-pad"} name={"Phone Number"} placeholder={"This helps us connect you with people"} />
-                <CustomInput secure headerEnabled name={"Password"} placeholder={"Don't share this!"} />
+                <CustomInput onChangeText={setName} headerEnabled name={"Name"} placeholder={"Your name"} />
+                <CustomInput onChangeText={setUsername} headerEnabled name={"Username"} placeholder={"Ryan Reynolds"} />
+                <CustomInput onChangeText={setEmail} headerEnabled name={"Email"} placeholder={"awesome@example.com"} />
+                <CustomInput onChangeText={setNumber} headerEnabled type={"number-pad"} name={"Phone Number"} placeholder={"This helps us connect you with people"} />
+                <CustomInput onChangeText={setPassword} secure headerEnabled name={"Password"} placeholder={"Don't share this!"} />
             </View>
             <View style={styles.submitContainer}>
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={onRegister}>
                     <Text style={styles.submitText}>
                         Register
                     </Text>
                 </TouchableOpacity>
-                <Text style={styles.extra} onPress={() => {navigation.navigate("Login")}}>
+                <Text style={styles.extra} onPress={() => { navigation.navigate("Login") }}>
                     Already have an account? <Text style={styles.link}> Login</Text>
                 </Text>
             </View>
