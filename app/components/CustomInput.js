@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 
-const CustomInput = ({ placeholder, name, headerEnabled, onChangeText, type, secure }) => {
+const CustomInput = ({ placeholder, name, headerEnabled, onChangeText, type, secure, multiline }) => {
     return (
         <View style={styles.container}>
             {headerEnabled && <Text>{name}</Text>}
-            <TextInput secureTextEntry={secure} keyboardType={type} onChangeText={(text) => {onChangeText(text)}} style={styles.input} placeholder={placeholder} />
+            <TextInput multiline={multiline} secureTextEntry={secure} keyboardType={type} onChangeText={(text) => {onChangeText(text)}} style={styles.input} placeholder={placeholder} />
         </View>
     )
 }
