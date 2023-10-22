@@ -2,5 +2,15 @@
 <header>
 <h1 align = "center"> Who we Are </h1>
 </header>
+<h3 align = "center"> Unite is a way for people to do activities together. Whether you're looking for poker buddies or a workout partner, Unite can connect you with those around you with similar hobbies </h3>
 
-<p align = "center"> Unite is a way for people to do activities together. Whether you're looking for poker buddies or a workout partner, Unite can connect you with those around you with similar hobbies </p>
+<h2>Table of Contents</h2>
+- [Meet The Team](#Meet)
+- [Installation](#installation)
+  - [Usage](#usage)
+- [Features](#features)
+  - [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+
+<a name = "Meet><a>
