@@ -1,6 +1,9 @@
 const {default : Terra} = require("terra-api");
 const terra = new Terra("stuff-prod-2bIuU8nOeP","6LEi1JEeTyM4gBicUk-vroFGct8UU0u9", "");
-//const userData = //get user data based off of the other js files
+const USER_ID = "insert string here"; 
+
+const api_key = '6LEi1JEeTyM4gBicUk-vroFGct8UU0u9';
+const reference_id = 'stuff-prod-2bIuU8nOeP';
 
 terra.getProviders().then((p) => {console.log(p);})
 
@@ -14,23 +17,20 @@ terra
 terra
     .generateWidgetSession({
       providers: ["GARMIN"],
-      authSuccessRedirectUrl: "success.com",
+      authSuccessRedirectUrl: "https://server-tiktdolzja-ue.a.run.app",
       authFailureRedirectUrl: "failure.com",
   		language: 'en'
     })
     .then((s) => {
       console.log(s);
     });
-function takeHeartRateDuringEvent(hours)
+
+const heart_rate_data = () =>
 {
-    time = Math.round(hours * 6);
-    const date = new Date();
-    heartRateData = JSON.parse(terra.getActivity({userData,date})["heart_rate_data"]["detailed"]["hr_samples"]);
-    let x = 0;
-    for (let i = 0; i < time; i++)
-    {
-        x += heartRateData.pop();
+    try {
+         return terra.getActivity({userId: USER_ID,startDate: new Date("2023-10-21"), toWebhook: false})["heart_rate_data"]["summary"]["avg_hr_bpm"];
     }
-    x = Math.round(x/time);
-    return json({userID : userData, averageRate: x} );
+    catch (error){
+        console.log("Error occured");
+    }
 }
