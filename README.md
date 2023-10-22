@@ -42,10 +42,12 @@ We created a user-friendly way to meet others in smaller groups. Rather than imm
 
 ## What Is What:question: <a name = "tech"><a>
 ### Frontend:incoming_envelope: <a name = "Front"><a>
-The frontend is comprised of mainly React-Native and Expo. After using Figma to create a prototype for how we want the app to look, we used React-Native to create the mobile application. From there, we used Expo to test our frontend and implement a user-friendly app.
+The frontend is comprised of mainly React-Native and Expo. After using Figma to create a prototype for how we want the app to look, we used React-Native to create the mobile application. From there, we used Expo to test our frontend and implement a user-friendly and functional app.
 
 ### Backend:mailbox_with_mail: <a name = "Back"><a>
-The backend is built entirely with Node.js and handles all http requests and routing with Express.js. All of the data provided by our users are managed using Google Firebase. It serves as both a database and authentication system, providing a secure and reliable environment to store user data. 
+Our backend is supported by a Node.JS server hosted on the Google Clous Platform. We wanted to gain experiene with hosting and building robust services for our client to consume. To achieve this, we successfully hosted our server using Google Cloud Run, stored our data using Firestore, created a storage bucket, and managed authentication from our backend with Google Firebase Authentication. We thoroughly enjoyed the developer experience the Google Cloud Platform provides and plan to stay with the platform as the project evolves. 
+
+Some other technologies we included in our backend were BCrypt and Express. BCrypt was used to hash and salt passwords and express allowed us to easily route our requests from our clinet.
 
 ## Challenges:anger: <a name = "challenge"><a>
 Throughout our journey in the hackathon, our primary challenge was our lack of experience with app development. For most of our team, this was the first time working with react, expo, and firebase. Having never touched Javascript, we were presented with a steep learning curve to overcome.  
