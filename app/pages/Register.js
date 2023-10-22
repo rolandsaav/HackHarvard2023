@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View, Keyboard, Pressable } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View, Keyboard, KeyboardAvoidingView, Pressable, ScrollView } from 'react-native'
 import CustomInput from '../components/CustomInput';
 import { useContext, useState } from 'react';
 import { auth, db, userRef } from '../firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { AuthContext } from '../context/AuthContext';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 const brandImg = require("../assets/Brand.png")
@@ -45,30 +46,31 @@ const Register = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.titleContainer}>
-                <Image style={styles.image} source={brandImg} />
-            </View>
-            <View style={styles.inputContainer}>
-                <CustomInput onChangeText={setName} headerEnabled name={"Name"} placeholder={"Your name"} />
-                <CustomInput onChangeText={setUsername} headerEnabled name={"Username"} placeholder={"Ryan Reynolds"} />
-                <CustomInput onChangeText={setEmail} headerEnabled name={"Email"} placeholder={"awesome@example.com"} />
-                <CustomInput onChangeText={setNumber} headerEnabled type={"number-pad"} name={"Phone Number"} placeholder={"This helps us connect you with people"} />
-                <CustomInput onChangeText={setPassword} secure headerEnabled name={"Password"} placeholder={"Don't share this!"} />
-            </View>
-            <View style={styles.submitContainer}>
-                <TouchableOpacity style={styles.buttonContainer} onPress={onRegister}>
-                    <Text style={styles.submitText}>
-                        Register
+        <KeyboardAwareScrollView>
+            <View style={styles.container}>
+                <View style={styles.titleContainer}>
+                    <Image style={styles.image} source={brandImg} />
+                </View>
+                <View style={styles.inputContainer}>
+                    <CustomInput onChangeText={setName} headerEnabled name={"Name"} placeholder={"Your name"} />
+                    <CustomInput onChangeText={setUsername} headerEnabled name={"Username"} placeholder={"Ryan Reynolds"} />
+                    <CustomInput onChangeText={setEmail} headerEnabled name={"Email"} placeholder={"awesome@example.com"} />
+                    <CustomInput onChangeText={setNumber} headerEnabled type={"number-pad"} name={"Phone Number"} placeholder={"This helps us connect you with people"} />
+                    <CustomInput onChangeText={setPassword} secure headerEnabled name={"Password"} placeholder={"Don't share this!"} />
+                </View>
+                <View style={styles.submitContainer}>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={onRegister}>
+                        <Text style={styles.submitText}>
+                            Register
+                        </Text>
+                    </TouchableOpacity>
+                    <Text style={styles.extra} onPress={() => { navigation.navigate("Login") }}>
+                        Already have an account? <Text style={styles.link}> Login</Text>
                     </Text>
-                </TouchableOpacity>
-                <Text style={styles.extra} onPress={() => { navigation.navigate("Login") }}>
-                    Already have an account? <Text style={styles.link}> Login</Text>
-                </Text>
-            </View>
-
-
-        </View>
+                </View>
+            </View> 
+        </KeyboardAwareScrollView>
+        
     )
 }
 
