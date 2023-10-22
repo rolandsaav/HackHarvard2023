@@ -9,6 +9,7 @@ import { db, storage } from '../firebase';
 import * as Crypto from 'expo-crypto';
 import { ref, uploadBytes } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
+import { FontAwesome } from '@expo/vector-icons';
 
 
 
@@ -45,6 +46,7 @@ const Create = ({ navigation }) => {
             setSelectedImage({ uri: result.assets[0].uri })
         } else {
             alert('You did not select any image.');
+            return
         }
         const response = await fetch(result.assets[0].uri)
         const b = await response.blob()
@@ -52,11 +54,15 @@ const Create = ({ navigation }) => {
     };
 
     const onCreate = async () => {
-        const UUID = Crypto.randomUUID();
-        const imgUrl = `images/activities/${UUID}`
-        const imagesRef = ref(storage, imgUrl);
-
         try {
+            if (blob === null) {
+                alert('You did not select any image.');
+                return
+            }
+            
+            const UUID = Crypto.randomUUID();
+            const imgUrl = `images/activities/${UUID}`
+            const imagesRef = ref(storage, imgUrl);
             const snapshot = await uploadBytes(imagesRef, blob)
             console.log(snapshot);
             const activity = {
@@ -122,7 +128,15 @@ const Create = ({ navigation }) => {
 
                     </View>
 
-                    {selectedImage == null ? <TouchableOpacity onPress={pickImageAsync} style={styles.image} /> : <Image style={styles.image} source={selectedImage} />}
+                    {selectedImage == null ?
+                        <TouchableOpacity
+                            onPress={pickImageAsync}
+                            style={styles.image}>
+                            <FontAwesome name="plus" size={80} color="white" />
+                        </TouchableOpacity>
+                        :
+                        <Image style={styles.image} source={selectedImage} />
+                    }
 
                 </View>
             </KeyboardAwareScrollView>
@@ -178,9 +192,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         width: "80%",
         aspectRatio: 1,
-        backgroundColor: "#aaa",
-        borderRadius: 10,
-        resizeMode: "cover"
+        backgroundColor: "#222",
+        borderRadius: 15,
+        resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: "center"
     },
     row: {
         flexDirection: "row",

@@ -2,13 +2,17 @@ import { RefreshControl, SafeAreaView, ScrollView, StyleSheet } from 'react-nati
 import Event from '../components/Event';
 import { useCallback, useEffect, useState } from 'react';
 import { auth, db, storage } from '../firebase';
-import { collection, getDocs, arrayUnion, updateDoc, doc } from "firebase/firestore";
+import { collection, getDocs, arrayUnion, updateDoc, doc, getDoc} from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
 
 const Home = () => {
     const [activities, setActivities] = useState([])
     const [refreshing, setRefreshing] = useState(false);
+    const userRef = doc(db, "users", auth.currentUser.uid);
     async function getActivities() {
+        const userSnap = await getDoc(userRef);
+        const userData = userSnap.data();
+
         console.log(auth.currentUser.uid)
         console.log("Loading data")
         setRefreshing(true);
@@ -28,6 +32,7 @@ const Home = () => {
                 a.image = urls.find((u) => u.includes(a.id))
             })
         })
+        acts = acts.filter(a =>  !userData.seen.includes(a.id))
         setActivities([...acts])
         setRefreshing(false);
     }
@@ -44,7 +49,6 @@ const Home = () => {
 
     const onYes = async (id) => {
         removeFromList(id);
-        const userRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(userRef, {
             seen: arrayUnion(id),
             accepted: arrayUnion(id)
@@ -53,7 +57,6 @@ const Home = () => {
 
     const onMaybe = async (id) => {
         removeFromList(id);
-        const userRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(userRef, {
             seen: arrayUnion(id),
             possible: arrayUnion(id)
@@ -62,7 +65,6 @@ const Home = () => {
 
     const onNo = async (id) => {
         removeFromList(id);
-        const userRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(userRef, {
             seen: arrayUnion(id),
             rejected: arrayUnion(id)
