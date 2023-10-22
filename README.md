@@ -8,7 +8,8 @@
 
 - [Table of Contents](#table-of-contents)
 - [Meet The Team ](#meet-the-team-)
-- [Installation ](#installation-)
+- [Installation:wrench: ](#installationwrench-)
+- [Challenges:anger: ](#challengesanger-)
 
 ### Meet The Team <a name = "Meet"><a>
 Wasssupppppppppppppp
@@ -18,9 +19,14 @@ leave empty for now
 
 
 
-### Installation <a name = "installation"><a>
-Run the following commands:
-`npm i node`
-`npm i express`
+### Installation:wrench: <a name = "installation"><a>
+1.Start by cloning the repository  
+2.Once the repo is cloned, change into the "app" and "server" directory with `cd server/` and `cd app/`  
+3.Use `npm install` in both directories
+
+### Challenges:anger: <a name = "challenge"><a>
+Throughout our journey in the hackathon, our primary challenge was our lack of experience with app development. For most of our team, this was the first time working with react, expo, and express. Having never touched Javascript, we were presented with a steep learning curve to overcome.
+
+
 
 
