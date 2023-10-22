@@ -32,11 +32,8 @@ const Register = ({ navigation }) => {
                     phone: number,
                     username: username,
                 }
-
                 await setDoc(document, data);
-
                 setUser(user);
-
             }
             catch(err) {
                 console.log(err)
