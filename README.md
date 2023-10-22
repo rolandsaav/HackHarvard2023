@@ -21,7 +21,7 @@
 Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as testing the frontend on Expo.
   
 -Johnathan Liu (Backend Dev)   
-John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase, connecting the backend and frontend together, and working with database issues.
+John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase, connecting the backend and frontend together, and working through database issues.
    
 -Nikola Rogers (Frontend Dev)   
 Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative as well as creating a prototype with Figma.
