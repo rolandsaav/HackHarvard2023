@@ -9,7 +9,8 @@
 - [Meet The Team:bow: ](#meet-the-teambow-)
 - [Installation:wrench: ](#installationwrench-)
 - [What Is What:question: ](#what-is-whatquestion-)
-  - [Backend:factory: ](#backendfactory-)
+  - [Frontend:incoming\_envelope: ](#frontendincoming_envelope-)
+  - [Backend:mailbox\_with\_mail: ](#backendmailbox_with_mail-)
 - [Challenges:anger: ](#challengesanger-)
 
 ## Meet The Team:bow: <a name = "Meet"><a>
@@ -23,15 +24,16 @@ leave empty for now
 ## Installation:wrench: <a name = "installation"><a>
 1.Start by cloning the repository  
 2.Once the repo is cloned, change into the "app" and "server" directory with `cd server/` and `cd app/`  
-3.Use `npm install` in both directories
+3.Use `npm install` in both directories to download all dependencies
 
 ## What Is What:question: <a name = "tech"><a>
-### Backend:factory: <a name = "back"><a>
+### Frontend:incoming_envelope: <a name = "Front"><a>
 
-
+### Backend:mailbox_with_mail: <a name = "Back"><a>
 
 ## Challenges:anger: <a name = "challenge"><a>
 Throughout our journey in the hackathon, our primary challenge was our lack of experience with app development. For most of our team, this was the first time working with react, expo, and firebase. Having never touched Javascript, we were presented with a steep learning curve to overcome.  
+
 Our most significant challenges included storing data on Firebase and quality-of-life features on apps. While most of us had no experience with databases, we understood conceptually how a database worked but came to realize implementing it was a different story. Combined with the lack of sleep and time, we were able to pull through and deliver.
 
 
