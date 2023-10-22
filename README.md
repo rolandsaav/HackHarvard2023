@@ -4,7 +4,7 @@
 </header>
 <h3 align = "center"> Unite is a way for people to do activities together. Whether you're looking for poker buddies or a workout partner, Unite can connect you with those around you with similar hobbies </h3>
 
-<h3>Table of Contents</h3>
+Table of Contents
 - [Meet The Team](#Meet)
 - [Installation](#installation)
   - [Usage](#usage)
