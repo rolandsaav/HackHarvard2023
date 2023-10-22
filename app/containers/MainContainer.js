@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../pages/Home';
 import Create from '../pages/Create';
-import Profile from '../pages/Profile';
 import Profile from '../pages/Profile'
 import List from '../pages/List'
 import { FontAwesome } from '@expo/vector-icons'; 
