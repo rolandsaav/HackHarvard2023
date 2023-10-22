@@ -31,6 +31,10 @@ const Register = ({ navigation }) => {
                     name: name,
                     phone: number,
                     username: username,
+                    seen: [],
+                    accepted: [],
+                    rejected: [],
+                    possible: []
                 }
                 await setDoc(document, data);
                 setUser(user);

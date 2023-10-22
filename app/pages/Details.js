@@ -48,7 +48,7 @@ const Details = ({ navigation, route }) => {
             <View style={styles.userContainer}> 
             {users.map(u => {
                 return (
-                    <View style={styles.user}>
+                    <View key={u.id} style={styles.user}>
                         <Text style={styles.name}>{u.name}</Text>
                         <Text style={styles.email}>{u.email}</Text>
                         <Text style={styles.phoneNumber}>{u.phone}</Text>
