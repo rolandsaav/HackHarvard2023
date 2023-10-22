@@ -5,11 +5,11 @@ const testImg = require("../assets/image.jpg")
 const Event = ({title, location, time, description, image}) => {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={testImg} />
+            <Image style={styles.image} source={image} />
             <View style={styles.detailsContainer}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.subtitle}>{location} | {time}</Text>
-                <Text>{description}</Text>
+                <Text style={{color: "#FFF"}}>{description}</Text>
             </View>
         </View>
     )
@@ -30,13 +30,20 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: "bold",
-        fontSize: 28
+        fontSize: 28,
+        color: "#FFF"
     },
     subtitle: {
         fontWeight: "500",
-        fontSize: 20
+        fontSize: 20,
+        color: "#FFF"
     },
     detailsContainer: {
-        padding: 10
+        padding: 10,
+        position: "absolute",
+        bottom: 0,
+        backgroundColor: "#000",
+        zIndex: 99,
+        width: "100%"
     }
 })
