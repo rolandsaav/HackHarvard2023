@@ -8,7 +8,10 @@ const Home = () => {
     return (
         <SafeAreaView style={[styles.container]}>
             <ScrollView>
-                <Event/>
+                <Event title="Title text" location="Hell" time="Always"/>
+                <Event title="Title text" location="Hell" time="Always"/>
+                <Event title="Title text" location="Hell" time="Always"/>
+                <Event title="Title text" location="Hell" time="Always"/>
             </ScrollView>
         </SafeAreaView>
 
@@ -20,5 +23,6 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#e28f66"
     }
 })
