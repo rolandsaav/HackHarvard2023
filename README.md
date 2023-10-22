@@ -12,19 +12,20 @@
   - [Frontend:incoming\_envelope: ](#frontendincoming_envelope-)
   - [Backend:mailbox\_with\_mail: ](#backendmailbox_with_mail-)
 - [Challenges:anger: ](#challengesanger-)
+- [Target Audience:dart: ](#target-audiencedart-)
 
 ## Meet The Team:bow: <a name = "Meet"><a>
 -Roland Saavedra (Full-Stack Dev)     
-Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as implementing the data on Expo.  
+Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as testing the frontend on Expo.  
   
 -Johnathan Liu (Backend Dev)   
 John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase and connecting the backend and frontend together and storing information with Firestore.   
    
 -Nikola Rogers (Frontend Dev)   
-Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative.   
+Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative as well as creating a prototype with Figma.
  
 -Kyle Chen (Backend Dev)   
-Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. During the hackathon, Kyle used Express.js and Firebase to create the backend, as well as assisting in frontend development.
+Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. He's always excited to work with new technologies and during the hackathon, Kyle used Express.js and Firebase to create the backend, as well as assisting in frontend development.
 
 
 ## Installation:wrench: <a name = "installation"><a>
@@ -34,13 +35,15 @@ Kyle Chen is a second-year Computer Science major at the Georgia Institute of Te
 
 ## What Is What:question: <a name = "tech"><a>
 ### Frontend:incoming_envelope: <a name = "Front"><a>
+The frontend is comprised of mainly React-Native and Expo. After using Figma to create a prototype for how we want the app to look, we used React-Native to create the mobile application. From there, we used Expo to test our frontend and implement a user-friendly app.
 
 ### Backend:mailbox_with_mail: <a name = "Back"><a>
+The backend is built entirely with Node.js and handles all http requests and routing with Express.js. All of the data provided by our users are managed using Google Firebase. It serves as both a database and authentication system, providing a secure and reliable environment to store user data. 
 
 ## Challenges:anger: <a name = "challenge"><a>
 Throughout our journey in the hackathon, our primary challenge was our lack of experience with app development. For most of our team, this was the first time working with react, expo, and firebase. Having never touched Javascript, we were presented with a steep learning curve to overcome.  
 
-Our most significant challenges included storing data on Firebase and quality-of-life features on apps. While most of us had no experience with databases, we understood conceptually how a database worked but came to realize implementing it was a different story. Combined with the lack of sleep and time, we were able to pull through and deliver.
+Our most significant challenges included storing data on Firebase and quality-of-life features on apps. While most of us had no experience with databases, we understood conceptually how a database worked but came to realize implementing it was a different story. Despite the combination of the lack of sleep and time, we were able to pull through and deliver.  
 
-
-
+## Target Audience:dart: <a name = "Target"><a>  
+This app is meant for anyone who wants to engage and build a community with others. 
