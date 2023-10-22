@@ -4,26 +4,23 @@
 </header>
 <h3 align = "center"> Unite is a way for people to do activities together. Whether you're looking for poker buddies or a workout partner, Unite can connect you with those around you with similar hobbies </h3>
 
-<h3>Table of Contents</h3>
+### Table of Contents
 
-- [Meet The Team](#Meet)
-- [Installation](#installation)
-  - [Usage](#usage)
-- [Features](#features)
-  - [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
+- [Table of Contents](#table-of-contents)
+- [Meet The Team ](#meet-the-team-)
+- [Installation ](#installation-)
 
-<h3>Meet The Team</h3> <a name = "Meet"><a>
-<p>Wasssupppppppppppppp</p>
+### Meet The Team <a name = "Meet"><a>
+Wasssupppppppppppppp
 
 
-<p>leave empty for now</p>
+leave empty for now  
 
 
-<h3>Installation</h3> <a name = "installation"><a>
+
+### Installation <a name = "installation"><a>
 Run the following commands:
-` npm i node `
-npm i express
-```
+`npm i node`
+`npm i express`
+
 
