@@ -18,7 +18,7 @@ const Event = ({ title, location, time, description, image, onYes, onMaybe, onNo
                         <FontAwesome name="check" size={40} color="green" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={onMaybe}>
-                        <FontAwesome name="question" size={40} color="blue" />
+                        <FontAwesome name="question" size={40} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={onNo}>
                         <FontAwesome name="remove" size={40} color="red" />
