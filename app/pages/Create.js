@@ -9,6 +9,7 @@ import { AuthContext } from '../context/AuthContext';
 import { db, storage } from '../firebase';
 import * as Crypto from 'expo-crypto';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { setDoc, doc } from "firebase/firestore";
 
 
 
@@ -24,7 +25,7 @@ const types = [
 ];
 
 
-const Create = () => {
+const Create = ({ navigation }) => {
     const [type, setType] = useState("");
     const [desc, setDesc] = useState("");
     const [location, setLocation] = useState("");
@@ -32,7 +33,7 @@ const Create = () => {
     const [blob, setBlob] = useState(null)
     const [start, setStart] = useState(new Date())
     const [end, setEnd] = useState(new Date())
-    
+
 
     const pickImageAsync = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -58,17 +59,28 @@ const Create = () => {
         try {
             const snapshot = await uploadBytes(imagesRef, blob)
             console.log(snapshot);
+            const activity = {
+                id: UUID,
+                type: type.value,
+                desc: desc,
+                image: imgUrl,
+                start: start,
+                end: end,
+                location: location
+            }
+
+            const document = doc(db, "activities", UUID)
+
+            await setDoc(document, activity);
+            setBlob(null);
+            setDesc("");
+            setSelectedImage(null);
+            setLocation("");
+            setType("")
+            navigation.navigate("Home")
         }
         catch (err) {
             console.log(err)
-        }
-
-        const activity = {
-            type: type,
-            desc: desc,
-            image: imgUrl,
-            start: start,
-            end: end,
         }
     }
 
@@ -94,11 +106,11 @@ const Create = () => {
                     <View style={styles.inputs}>
                         <Text style={styles.title}>Create Event</Text>
                         <Dropdown style={styles.dropdown} itemContainerStyle={styles.itemContainer} labelField={"label"} valueField={"value"} placeholder='Select the type of activity' data={types} maxHeight={300} value={type} onChange={setType} />
-                        <CustomInput name="Location" headerEnabled placeholder="Where will your event be?" onChangeText={setLocation}/>
+                        <CustomInput name="Location" headerEnabled placeholder="Where will your event be?" onChangeText={setLocation} />
                         <CustomInput multiline name="Description" headerEnabled placeholder="What is this event?" onChangeText={setDesc} />
                         <View style={styles.row}>
                             <Text style={{ fontSize: 20 }}>From</Text>
-                            <DateTimePicker minuteInterval={15} timeZoneOffsetInMinutes={-5 * 60}  minimumDate={new Date()} onChange={onStartChanged} mode="datetime" value={start} />
+                            <DateTimePicker minuteInterval={15} timeZoneOffsetInMinutes={-5 * 60} minimumDate={new Date()} onChange={onStartChanged} mode="datetime" value={start} />
                         </View>
                         <View style={styles.row}>
                             <Text style={{ fontSize: 20 }}>To</Text>
@@ -108,7 +120,6 @@ const Create = () => {
                     </View>
 
                     {selectedImage == null ? <TouchableOpacity onPress={pickImageAsync} style={styles.image} /> : <Image style={styles.image} source={selectedImage} />}
-
 
                 </View>
             </KeyboardAwareScrollView>
