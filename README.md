@@ -14,14 +14,17 @@
 - [Challenges:anger: ](#challengesanger-)
 
 ## Meet The Team:bow: <a name = "Meet"><a>
--Roland Saavedra (Full-Stack Dev)   
-Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as implementing the data on Expo.
+-Roland Saavedra (Full-Stack Dev)     
+Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as implementing the data on Expo.  
+  
 -Johnathan Liu (Backend Dev)   
-John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase and connecting the backend and frontend together and storing information with Firestore.
+John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase and connecting the backend and frontend together and storing information with Firestore.   
+   
 -Nikola Rogers (Frontend Dev)   
-Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative.
+Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative.   
+ 
 -Kyle Chen (Backend Dev)   
-Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. During the hackathon, Kyle used Express.js and Firebase to create the backend. 
+Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. During the hackathon, Kyle used Express.js and Firebase to create the backend, as well as assisting in frontend development.
 
 
 ## Installation:wrench: <a name = "installation"><a>
