@@ -1,17 +1,19 @@
-import { RefreshControl, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { Modal, RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native'
 import EventInList from '../components/EventInList';
 import { useContext, useEffect, useState, useCallback } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { collection, getDocs, arrayUnion, updateDoc, doc } from "firebase/firestore";
+import { collection, getDocs, arrayUnion, updateDoc, doc, getDoc } from "firebase/firestore";
 import { db, auth, storage } from '../firebase';
 import { ref, getDownloadURL } from "firebase/storage";
 
-const List = () => {
+const List = ({navigation}) => {
     const [activities, setActivities] = useState([])
     const [refreshing, setRefreshing] = useState(false);
+    const [visible, setVisible] = useState(false)
+    const userRef = doc(db, "users", auth.currentUser.uid);
     async function getActivities() {
-        console.log(auth.currentUser.uid)
-        console.log("Loading data")
+        const userSnap = await getDoc(userRef);
+        const userData = userSnap.data();
         setRefreshing(true);
         if (refreshing) return
         let acts = [];
@@ -29,6 +31,7 @@ const List = () => {
                 a.image = urls.find((u) => u.includes(a.id))
             })
         })
+        acts = acts.filter(a => userData.seen.includes(a.id) && !userData.rejected.includes(a.id))
         setActivities([...acts])
         setRefreshing(false);
     }
@@ -42,16 +45,19 @@ const List = () => {
         getActivities();
 
     }, []);
+
+    const goToDetails = (id) => {
+        navigation.navigate("Details", {id: id})
+    }
     
     return (
-        <SafeAreaView style={[styles.container]}>
+        <SafeAreaView style={[styles.container]}>   
+            
             <ScrollView refreshControl={
                 <RefreshControl onRefresh={onRefresh} refreshing={refreshing} />
             }>
             {activities.map((a, i) => {
-                    console.log(a.id)
-                    console.log(activities.length)
-                return <EventInList image={{uri: a.image}} title={a.type} location={a.location} start={a.start} end={a.end} key={i}/>
+                return <EventInList onPress={() => goToDetails(a.id)} image={{uri: a.image}} title={a.type} location={a.location} start={a.start} end={a.end} key={i}/>
                 })}
             </ScrollView>
         </SafeAreaView>
@@ -63,6 +69,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#e28f66"
+    },
+    modal: {
+        position: "absolute",
+        width: "100%",
+        height: 100,
+        bottom: 0,
     }
 })
 

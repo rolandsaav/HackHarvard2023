@@ -6,6 +6,7 @@ import Create from '../pages/Create';
 import Profile from '../pages/Profile'
 import List from '../pages/List'
 import { FontAwesome } from '@expo/vector-icons'; 
+import EventContainer from './EventContainer';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,7 +41,7 @@ const MainContainer = () => {
             />
             <Tab.Screen
                 name="Events"
-                component={List}
+                component={EventContainer}
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <FontAwesome

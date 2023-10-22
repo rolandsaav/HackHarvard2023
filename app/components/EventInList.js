@@ -1,9 +1,9 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Timestamp } from 'firebase/firestore';
 
 const testImg = require("../assets/image.jpg")
 
-const EventInList = ({title, location, start, end, image}) => {
+const EventInList = ({title, location, start, end, image, onPress}) => {
     let startFormattedDate = '';
     let endFormattedDate = '';
     
@@ -30,13 +30,13 @@ const EventInList = ({title, location, start, end, image}) => {
     }
 
     return (
-        <View style={styles.container}>
+        <Pressable onPress={() => onPress()} style={styles.container}>
             <Image style={styles.image} source={image.uri == undefined ? testImg : image} />
             <View style={styles.detailsContainer}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.subtitle}>{location} | {startFormattedDate}-{formattedEndDate}</Text>
             </View>
-        </View>
+        </Pressable>
     )
 }
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
-        height: 150,
+        height: 300,
         resizeMode: "cover",
     },
     title: {
