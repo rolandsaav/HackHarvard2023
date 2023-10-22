@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { Image, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import CustomInput from '../components/CustomInput';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as ImagePicker from 'expo-image-picker';
-import { AuthContext } from '../context/AuthContext';
 import { db, storage } from '../firebase';
 import * as Crypto from 'expo-crypto';
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 
 
@@ -26,13 +25,14 @@ const types = [
 
 
 const Create = ({ navigation }) => {
-    const [type, setType] = useState("");
+    const [type, setType] = useState("Other");
     const [desc, setDesc] = useState("");
     const [location, setLocation] = useState("");
     const [selectedImage, setSelectedImage] = useState(null);
     const [blob, setBlob] = useState(null)
     const [start, setStart] = useState(new Date())
     const [end, setEnd] = useState(new Date())
+    const [title, setTitle] = useState("")
 
 
     const pickImageAsync = async () => {
@@ -66,7 +66,8 @@ const Create = ({ navigation }) => {
                 image: imgUrl,
                 start: start,
                 end: end,
-                location: location
+                location: location,
+                title: title
             }
 
             const document = doc(db, "activities", UUID)
@@ -76,7 +77,8 @@ const Create = ({ navigation }) => {
             setDesc("");
             setSelectedImage(null);
             setLocation("");
-            setType("")
+            setType("Other");
+            setTitle("");
             navigation.navigate("Home")
         }
         catch (err) {
@@ -106,6 +108,7 @@ const Create = ({ navigation }) => {
                     <View style={styles.inputs}>
                         <Text style={styles.title}>Create Event</Text>
                         <Dropdown style={styles.dropdown} itemContainerStyle={styles.itemContainer} labelField={"label"} valueField={"value"} placeholder='Select the type of activity' data={types} maxHeight={300} value={type} onChange={setType} />
+                        <CustomInput name="Title" headerEnabled placeholder="What is this event?" onChangeText={setTitle} />
                         <CustomInput name="Location" headerEnabled placeholder="Where will your event be?" onChangeText={setLocation} />
                         <CustomInput multiline name="Description" headerEnabled placeholder="What is this event?" onChangeText={setDesc} />
                         <View style={styles.row}>
