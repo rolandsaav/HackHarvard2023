@@ -4,7 +4,8 @@
 </header>
 <h3 align = "center"> Unite is a way for people to do activities together. Whether you're looking for poker buddies or a workout partner, Unite can connect you with those around you with similar hobbies </h3>
 
-Table of Contents
+<h3>Table of Contents</h3>
+
 - [Meet The Team](#Meet)
 - [Installation](#installation)
   - [Usage](#usage)
@@ -13,4 +14,16 @@ Table of Contents
 - [Contributing](#contributing)
 - [License](#license)
 
-<p>Meet The Team</p> <a name = "Meet"><a>
+<h3>Meet The Team</h3> <a name = "Meet"><a>
+<p>Wasssupppppppppppppp
+
+
+leave empty for now
+</p>
+
+<h3>Installation</h3> <a name = "installation"><a>
+<p>Run the following commands:
+`npm i react-active`
+`npm i express`
+`npm i node`
+</p>
