@@ -23,8 +23,7 @@
 
 <h3>Installation</h3> <a name = "installation"><a>
 Run the following commands:
-```
-npm i node
+` npm i node `
 npm i express
 ```
 
