@@ -7,6 +7,8 @@
 ### Table of Contents
 
 - [Meet The Team:bow: ](#meet-the-teambow-)
+- [The Problem:pushpin: ](#the-problempushpin-)
+- [Our Solution:bulb: ](#our-solutionbulb-)
 - [Installation:wrench: ](#installationwrench-)
 - [What Is What:question: ](#what-is-whatquestion-)
   - [Frontend:incoming\_envelope: ](#frontendincoming_envelope-)
@@ -16,17 +18,22 @@
 
 ## Meet The Team:bow: <a name = "Meet"><a>
 -Roland Saavedra (Full-Stack Dev)     
-Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as testing the frontend on Expo.  
+Roland is a second-year Computer Science major as Georgia Tech and has the most experience amongst the group. With a keen eye for detail, Roland mostly worked on the frontend to implement quality-of-life features as well as testing the frontend on Expo.
   
 -Johnathan Liu (Backend Dev)   
-John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase and connecting the backend and frontend together and storing information with Firestore.   
+John is a second-year Computer Science major at Rochester Institute of Technology. He ended up in CS due to his love for mathematics and problem solving. During this hackathon, John spent his time implementing Firebase, connecting the backend and frontend together, and working with database issues.
    
 -Nikola Rogers (Frontend Dev)   
 Nikola is a second-year Computer Engineering major at the Georgia Institute of Technology. He picked this major due to interest in both computing hardware and software engineering, and continuously pursues his interest in both inside and outside of the classroom. During this project he spent most of his time implementing features in the front-end of our application using Node.js and ReactNative as well as creating a prototype with Figma.
  
 -Kyle Chen (Backend Dev)   
-Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. He's always excited to work with new technologies and during the hackathon, Kyle used Express.js and Firebase to create the backend, as well as assisting in frontend development.
+Kyle Chen is a second-year Computer Science major at the Georgia Institute of Technology. He's always excited to work with new technologies and during the hackathon, Kyle used Express.js and Firebase to create the backend  and storing/authenticating user data with Firestore.
 
+## The Problem:pushpin: <a name = "Problem"><a>
+In the status quo, loneliness and false exclusion are far too common. Throughout the last 5 years, despite technological growth allows for easier connection amongst members of a community, isolation exacerbated by the COVID pandemic has left the mental health of a majority of the world stuggling to keep up, with the WHO reporting that "depression and substance abuse rose by 33% from March 2020 to February 21".
+
+## Our Solution:bulb: <a name = "Solution"><a>
+We created a user-friendly way to meet others in smaller groups. Rather than immediately facing a much more anxious situation with large groups, users are able to slowly grow out of their comfort zone and connect with a small group first. 
 
 ## Installation:wrench: <a name = "installation"><a>
 1.Start by cloning the repository  
@@ -46,4 +53,4 @@ Throughout our journey in the hackathon, our primary challenge was our lack of e
 Our most significant challenges included storing data on Firebase and quality-of-life features on apps. While most of us had no experience with databases, we understood conceptually how a database worked but came to realize implementing it was a different story. Despite the combination of the lack of sleep and time, we were able to pull through and deliver.  
 
 ## Target Audience:dart: <a name = "Target"><a>  
-This app is meant for anyone who wants to engage and build a community with others. 
+Anybody :)
