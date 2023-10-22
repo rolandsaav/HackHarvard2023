@@ -5,10 +5,10 @@ import CustomInput from '../components/CustomInput';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as ImagePicker from 'expo-image-picker';
-import { db, storage } from '../firebase';
+import { auth, db, storage } from '../firebase';
 import * as Crypto from 'expo-crypto';
 import { ref, uploadBytes } from "firebase/storage";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { FontAwesome } from '@expo/vector-icons';
 
 
@@ -34,7 +34,7 @@ const Create = ({ navigation }) => {
     const [start, setStart] = useState(new Date())
     const [end, setEnd] = useState(new Date())
     const [title, setTitle] = useState("")
-
+    const userRef = doc(db, "users", auth.currentUser.uid);
 
     const pickImageAsync = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -73,12 +73,18 @@ const Create = ({ navigation }) => {
                 start: start,
                 end: end,
                 location: location,
-                title: title
+                title: title,
+                ownerId: auth.currentUser.uid,
+                attendees: [auth.currentUser.uid],
             }
 
             const document = doc(db, "activities", UUID)
 
             await setDoc(document, activity);
+            await updateDoc(userRef, {
+                seen: arrayUnion(UUID),
+                accepted: arrayUnion(UUID)
+            })
             setBlob(null);
             setDesc("");
             setSelectedImage(null);
@@ -119,13 +125,12 @@ const Create = ({ navigation }) => {
                         <CustomInput multiline name="Description" headerEnabled placeholder="What is this event?" onChangeText={setDesc} />
                         <View style={styles.row}>
                             <Text style={{ fontSize: 20 }}>From</Text>
-                            <DateTimePicker minuteInterval={15} timeZoneOffsetInMinutes={-5 * 60} minimumDate={new Date()} onChange={onStartChanged} mode="datetime" value={start} />
+                            <DateTimePicker minuteInterval={15} timeZoneOffsetInMinutes={-6 * 60} minimumDate={new Date()} onChange={onStartChanged} mode="datetime" value={start} />
                         </View>
                         <View style={styles.row}>
                             <Text style={{ fontSize: 20 }}>To</Text>
                             <DateTimePicker minuteInterval={15} timeZoneOffsetInMinutes={-5 * 60} minimumDate={new Date()} onEndChanged={onEndChanged} mode="datetime" value={end} />
                         </View>
-
                     </View>
 
                     {selectedImage == null ?

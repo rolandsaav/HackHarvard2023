@@ -45,7 +45,7 @@ const Profile = () => {
    
            <View style={styles.infoRow}>
              <Text style={styles.label}>Email:</Text>
-             <Text style={styles.text}>{userData.emai}</Text>
+             <Text style={styles.text}>{userData.email}</Text>
            </View>
    
            <View style={styles.infoRow}>

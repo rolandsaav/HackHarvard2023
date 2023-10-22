@@ -32,7 +32,7 @@ const Home = () => {
                 a.image = urls.find((u) => u.includes(a.id))
             })
         })
-        acts = acts.filter(a =>  !userData.seen.includes(a.id))
+        acts = acts.filter(a =>  !userData.seen.includes(a.id) && a.ownerId !== auth.currentUser.uid)
         setActivities([...acts])
         setRefreshing(false);
     }
