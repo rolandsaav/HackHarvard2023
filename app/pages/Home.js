@@ -2,7 +2,7 @@ import { RefreshControl, SafeAreaView, ScrollView, StyleSheet } from 'react-nati
 import Event from '../components/Event';
 import { useCallback, useEffect, useState } from 'react';
 import { auth, db, storage } from '../firebase';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, arrayUnion, updateDoc, doc } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
 
 const Home = () => {
@@ -42,13 +42,44 @@ const Home = () => {
 
     }, []);
 
+    const onYes = async (id) => {
+        removeFromList(id);
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(userRef, {
+            seen: arrayUnion(id),
+            accepted: arrayUnion(id)
+        })
+    }
+
+    const onMaybe = async (id) => {
+        removeFromList(id);
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(userRef, {
+            seen: arrayUnion(id),
+            possible: arrayUnion(id)
+        })
+    }
+
+    const onNo = async (id) => {
+        removeFromList(id);
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(userRef, {
+            seen: arrayUnion(id),
+            rejected: arrayUnion(id)
+        })
+    }
+
+    const removeFromList = (id) => {
+        setActivities(activities.filter(a => a.id !== id))
+    }
+
     return (
         <SafeAreaView style={[styles.container]}>
             <ScrollView refreshControl={
                 <RefreshControl onRefresh={onRefresh} refreshing={refreshing} />
             }>
                 {activities.map((a, i) => {
-                    return <Event image={{uri: a.image}} title={a.type} description={a.desc} location={a.location} key={i} />
+                    return <Event image={{uri: a.image}} title={a.type} description={a.desc} location={a.location} key={i} onYes={() => onYes(a.id)} onMaybe={() => onMaybe(a.id)} onNo={() => onNo(a.id)}/>
                 })}
 
             </ScrollView>
