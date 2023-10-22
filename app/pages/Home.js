@@ -8,10 +8,10 @@ const Home = () => {
     return (
         <SafeAreaView style={[styles.container]}>
             <ScrollView>
-                <Event title="Title text" location="Hell" time="Always"/>
-                <Event title="Title text" location="Hell" time="Always"/>
-                <Event title="Title text" location="Hell" time="Always"/>
-                <Event title="Title text" location="Hell" time="Always"/>
+                <Event title="Flag Football" location="Riverbend Park" time="3:30PM - 4:30PM"/>
+                <Event title="Mario Kart" location="183 Kirkland St" time="6:00PM - 8:00PM"/>
+                <Event title="Yoga" location="Cambridge Common" time="7:00AM - 8:00AM"/>
+                <Event title="Pickup Basketball" location="Conway Park" time="Always"/>
             </ScrollView>
         </SafeAreaView>
 
