@@ -23,7 +23,7 @@ leave empty for now
 
 <h3>Installation</h3> <a name = "installation"><a>
 <p>Run the following commands:
-`npm i react-active`
+`enter-docker.sh`
 `npm i express`
 `npm i node`
 </p>
