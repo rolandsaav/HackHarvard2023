@@ -1,17 +1,7 @@
-var admin = require("firebase-admin");
-var serviceAccount = require("./serviceAccountKey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-
-const db = admin.firestore();
-
-module.exports = db;
-
 const express = require("express");
 const router = express.Router();
-//const db = require('./firebaseInit');
+const {admin} = require("../firebaseInitialization");  // Import the already-initialized admin object
+const db = admin.firestore();  // Get Firestore database instance
 
 router.get("/:id", (req, res) => {
     db.collection('users').doc(String(req.params.id)).get()
