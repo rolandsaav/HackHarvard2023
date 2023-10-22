@@ -15,15 +15,15 @@
 - [License](#license)
 
 <h3>Meet The Team</h3> <a name = "Meet"><a>
-<p>Wasssupppppppppppppp
+<p>Wasssupppppppppppppp</p>
 
 
-leave empty for now
-</p>
+<p>leave empty for now</p>
+
 
 <h3>Installation</h3> <a name = "installation"><a>
-<p>Run the following commands:
+<p>Run the following commands:</p>
 `enter-docker.sh`
-`npm i express`
-`npm i node`
-</p>
+<p>`npm i express`</p>
+<p>`npm i node`</p>
+
